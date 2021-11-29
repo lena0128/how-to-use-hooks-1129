@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import FunctionalApp from './FunctionalApp'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {count: 0}
+
+  componentDidMount(){
+    console.log("mounted")
+  }
+
+  componentDidUpdate(){
+    console.log("updated")
+  }
+
+  render(){
+    return(
+      <div>
+        <div style={{textAlign: "center", marginTop: "40px", fonSize: "45px"}}>
+          {this.state.count}<br />
+          <button style={{fontSize: "20px", color: "#FBBF29"}} onClick={() => this.setState({count: this.state.count - 1})}> - </button>
+          <button style={{fontSize: "20px", color: "#FBBF29"}} onClick={() => this.setState({count: this.state.count + 1})}> + </button>
+        </div>
+        <h2>FUNCTIONAL APP</h2>
+        <FunctionalApp count={this.state.count} />
+      </div>
+    )
+  }
 }
 
 export default App;
