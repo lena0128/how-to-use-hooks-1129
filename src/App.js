@@ -1,8 +1,12 @@
 import React from 'react';
 import FunctionalApp from './FunctionalApp'
+import MultipleProps from './MultipleProps'
 
 class App extends React.Component {
-  state = {count: 0}
+  state = {
+    count: 0,
+    name: ""
+  }
 
   componentDidMount(){
     console.log("mounted")
@@ -22,6 +26,7 @@ class App extends React.Component {
         </div>
         <h2>FUNCTIONAL APP</h2>
         <FunctionalApp count={this.state.count} />
+        < MultipleProps count={this.state.count} name={this.state.name} />
       </div>
     )
   }
